@@ -1,0 +1,51 @@
+# Mérnöki Kamara Gépészeti Tagozat
+
+- ## bal oldal: bal fent sarok mmk logo: F:\H_mappa - GT_HONLAP_\logo\klf, mellette gépészeti logo: F:\H_mappa - GT_HONLAP_\logo\Logo_Fogaskerekes, mellette kiírva, alattuk menü háttér: F:\H_mappa - GT_HONLAP_\logo\klf, tabolva az alpontok alatta 
+	- Fő menüpontok (pl. Tagozatunk) egy összesítő oldalra dobnak ahol Gridbe összeszedi a saját alpontjait, egy átírányító oldalként funkcionálva 
+	
+	- ### Tagozatunk:
+		- Tagozati szervezet (+ szakcsoportok)
+		- érdekeltségi területek
+		- jogosultságok, tanúsítványok
+		- Dokumentumok
+			- szabályzatok
+			- határozatok
+			- Tagozati beszámolók (pdf, éves beszámoló hogy miket csináltunk)
+	
+	- ### Beszámolóink:
+		- Beszámolók (rendezvények, koszorúzások, megemlékezések, stb.)
+		- Mérnökkamara története (+ Első húsz évünk kiadvány)
+		- Neves elődeink (akiket koszorúzunk, díjak elnevezve utánuk, stb.)					
+
+	- ### Mérnökeinknek:
+		- Jogszabályok (valószínűleg csak linkek felsorolva), Jelentkezés a Kamarába, tagozatunkhoz (csak szöveg)
+		- Jogosultság és tanúsítványok, tanúsítványkérelem (űrlap (utolsó 8 év gyakorlat pdf-be feltölteni!!!))
+		- Továbbképzések
+		- Szakmai előadások, Cikkajánló
+		- Fiatal mérnökeinknek: Diplomadíj pályázat
+			- Díjazottak
+
+	- ### Díjaink:
+		- Botka Imre-díj (díj fényképe legelöl, Életútja (röviden, ... nyisd le hogy tovább olvasd), díj bemutatása, Alapító okirat letölthető pdf)
+			- Díjazottak - év, mire kapta, fénykép az emberről
+			- Díjátadók (csak < 3 év, utána szedje le a megjelenést de tároljuk hátha kell még)
+		- Magyar József-díj (díj fényképe legelöl, Életútja (röviden, ... nyisd le hogy tovább olvasd), díj bemutatása, Alapító okirat letölthető pdf)
+			- Díjazottak - év, mire kapta, fénykép az emberről
+			- Díjátadók (csak < 3 év, utána szedje le a megjelenést de tároljuk hátha kell még)
+		
+
+	
+
+- ## közép: tartalom
+
+- ## jobb: naptár alkalmak mozaik, kattintva nagy naptárra vált, hover csak az adott napot mutatja egy popupba részletesen
+	- https://elfsight.com/cdn-cgi/image/width=400,format=auto/https://dash.elfsight.com/core/widget/get-template-thumbnail-picture?templatePid=					52fc748c-5f1d-4267-92be-4fd0b4028d55
+
+	- https://elfsight.com/de/wp-content/uploads/sites/4/2020/06/event-calendar-screenshot-6.jpg
+
+- ## alul: lábléc
+
+feltöltött cikkeknek legyen feltöltés dátuma attribútum, rendezés, 1 év után a híreket elteszi archívum, stb.
+feltöltéskor a beszámolókba is rakja 
+
+landing page az a hírek

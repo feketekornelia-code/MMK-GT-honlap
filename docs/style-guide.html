@@ -1,0 +1,1450 @@
+<!doctype html>
+<html lang="hu">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MMK-GT - Sablon tesztoldal</title>
+  <meta name="description" content="Tesztoldal a mérnöki kamara tagozati weboldalának színvilágához, tipográfiájához, arányaihoz és akadálymentes alapjaihoz.">
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #eef3f8;
+      --bg-alt: #e3ebf4;
+      --surface: #ffffff;
+      --surface-strong: #d9e4f0;
+      --surface-dark: #c4d1df;
+      --border: #9fb0c3;
+      --border-strong: #6b8097;
+      --text: #1c2938;
+      --text-muted: #516173;
+      --heading: #0f2133;
+      --primary: #284e73;
+      --primary-strong: #17344f;
+      --secondary: #64758b;
+      --accent: #35648f;
+      --success: #235e56;
+      --shadow: 0 18px 40px rgba(16, 33, 51, 0.12);
+      --radius-lg: 1.25rem;
+      --radius-md: 0.9rem;
+      --radius-sm: 0.65rem;
+      --space-1: 0.5rem;
+      --space-2: 0.75rem;
+      --space-3: 1rem;
+      --space-4: 1.5rem;
+      --space-5: 2rem;
+      --space-6: 3rem;
+      --max-width: 1200px;
+      --font-sans: "Segoe UI", Inter, system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+      --font-serif: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif;
+      --font-mono: "Cascadia Mono", "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+      --focus: #0a67b8;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: var(--font-sans);
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(40, 78, 115, 0.12), transparent 30%),
+        radial-gradient(circle at top right, rgba(100, 117, 139, 0.14), transparent 26%),
+        linear-gradient(180deg, var(--bg) 0%, #f7fafc 42%, #edf3f8 100%);
+      line-height: 1.6;
+      text-rendering: optimizeLegibility;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      color: var(--primary);
+      text-underline-offset: 0.18em;
+    }
+
+    a:hover {
+      color: var(--primary-strong);
+    }
+
+    a:focus-visible,
+    button:focus-visible,
+    summary:focus-visible {
+      outline: 3px solid var(--focus);
+      outline-offset: 3px;
+    }
+
+    .skip-link {
+      position: absolute;
+      left: 1rem;
+      top: 0.75rem;
+      z-index: 1000;
+      padding: 0.8rem 1rem;
+      border-radius: 999px;
+      background: var(--primary-strong);
+      color: #fff;
+      transform: translateY(-180%);
+      transition: transform 0.2s ease;
+    }
+
+    .skip-link:focus {
+      transform: translateY(0);
+    }
+
+    .page-shell {
+      width: 100%;
+      max-width: none;
+      margin: 0;
+      padding: 0 0 3rem;
+    }
+
+    .masthead {
+      display: grid;
+      gap: var(--space-4);
+      align-items: center;
+      padding: var(--space-4);
+      border: 1px solid rgba(107, 128, 151, 0.28);
+      border-radius: calc(var(--radius-lg) + 0.2rem);
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.9), rgba(232, 239, 246, 0.95));
+      box-shadow: var(--shadow);
+    }
+
+    .brand-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-3);
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand-mark {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.9rem;
+      align-items: center;
+    }
+
+    .logo-badge {
+      width: 4rem;
+      height: 4rem;
+      border-radius: 1rem;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.18);
+      display: grid;
+      place-items: center;
+      color: #fff;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+    }
+
+    .brand-kicker {
+      margin: 0;
+      color: var(--secondary);
+      font-size: 0.95rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .brand-title {
+      margin: 0.15rem 0 0;
+      color: var(--heading);
+      font-size: clamp(1.6rem, 2.6vw, 2.65rem);
+      line-height: 1.1;
+    }
+
+    .brand-summary {
+      max-width: 62ch;
+      margin: 0;
+      color: var(--text-muted);
+    }
+
+    .nav-pill {
+      display: inline-flex;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .nav-pill a {
+      display: inline-flex;
+      align-items: center;
+      min-height: 2.6rem;
+      padding: 0.45rem 0.9rem;
+      border-radius: 999px;
+      border: 1px solid rgba(107, 128, 151, 0.26);
+      background: rgba(255, 255, 255, 0.92);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .content-grid {
+      display: grid;
+      gap: var(--space-4);
+      margin-top: 0;
+      grid-template-columns: minmax(18rem, 1fr) minmax(0, 3fr) minmax(18rem, 1fr);
+    }
+
+    .stack {
+      display: grid;
+      gap: var(--space-4);
+    }
+
+    .sidebar-nav {
+      display: grid;
+      gap: var(--space-3);
+      position: sticky;
+      top: 1rem;
+      bottom: 1rem;
+      align-self: start;
+    }
+
+    .sidebar-nav h2 {
+      margin: 0;
+      color: var(--heading);
+      font-size: 1.2rem;
+      line-height: 1.2;
+    }
+
+    .sidebar-menu,
+    .sidebar-submenu {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .sidebar-menu {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .sidebar-menu > li {
+      display: grid;
+      gap: 0.6rem;
+    }
+
+    .sidebar-menu > li > a {
+      display: block;
+      font-weight: 800;
+      text-decoration: none;
+      color: var(--primary-strong);
+      font-size: 1.02rem;
+    }
+
+    .sidebar-submenu {
+      display: grid;
+      gap: 0.4rem;
+      padding-left: 0.9rem;
+      border-left: 2px solid rgba(107, 128, 151, 0.22);
+    }
+
+    .sidebar-submenu a {
+      display: inline-flex;
+      align-items: flex-start;
+      gap: 0.35rem;
+      text-decoration: none;
+      color: var(--text-muted);
+      font-size: 0.94rem;
+      line-height: 1.35;
+    }
+
+    .sidebar-submenu a::before {
+      content: "•";
+      color: var(--secondary);
+      flex: none;
+    }
+
+    .panel {
+      padding: var(--space-4);
+      border: 1px solid rgba(107, 128, 151, 0.22);
+      border-radius: var(--radius-lg);
+      background: rgba(255, 255, 255, 0.9);
+      box-shadow: 0 12px 30px rgba(17, 34, 52, 0.07);
+    }
+
+    .panel h2,
+    .panel h3 {
+      color: var(--heading);
+      line-height: 1.2;
+    }
+
+    .panel h2 {
+      margin-top: 0;
+      margin-bottom: 0.4rem;
+      font-size: clamp(1.35rem, 2vw, 1.9rem);
+    }
+
+    .panel p:first-of-type {
+      margin-top: 0;
+    }
+
+    .section-note {
+      color: var(--text-muted);
+      margin-bottom: 1.25rem;
+      max-width: 72ch;
+    }
+
+    .token-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: var(--space-3);
+    }
+
+    .swatch {
+      border-radius: var(--radius-md);
+      border: 1px solid rgba(107, 128, 151, 0.24);
+      overflow: clip;
+      background: var(--surface);
+    }
+
+    .swatch-top {
+      min-height: 5rem;
+    }
+
+    .swatch-body {
+      padding: 0.85rem 1rem 1rem;
+    }
+
+    .swatch-title {
+      margin: 0 0 0.2rem;
+      font-size: 1rem;
+      color: var(--heading);
+    }
+
+    .swatch-meta {
+      margin: 0;
+      color: var(--text-muted);
+      font-size: 0.94rem;
+    }
+
+    .layout-demo {
+      display: grid;
+      gap: 0.8rem;
+      grid-template-columns: 1fr 2fr 1.1fr;
+      min-height: 18rem;
+    }
+
+    .layout-col {
+      border-radius: var(--radius-md);
+      padding: 1rem;
+      border: 1px dashed rgba(107, 128, 151, 0.38);
+      background: linear-gradient(180deg, rgba(236, 242, 248, 0.95), rgba(215, 226, 237, 0.92));
+    }
+
+    .layout-col strong {
+      display: block;
+      margin-bottom: 0.5rem;
+      color: var(--primary-strong);
+    }
+
+    .layout-main {
+      display: grid;
+      gap: 0.8rem;
+      grid-template-rows: auto 1fr auto;
+    }
+
+    .layout-card {
+      padding: 1rem;
+      border-radius: 0.8rem;
+      background: rgba(255, 255, 255, 0.84);
+      border: 1px solid rgba(107, 128, 151, 0.18);
+    }
+
+    .menu-grid {
+      display: grid;
+      gap: var(--space-3);
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .menu-card {
+      padding: 1rem;
+      border-radius: var(--radius-md);
+      border: 1px solid rgba(107, 128, 151, 0.2);
+      background: linear-gradient(180deg, rgba(248, 251, 253, 0.98), rgba(231, 239, 246, 0.96));
+    }
+
+    .menu-card h3 {
+      margin: 0 0 0.7rem;
+      color: var(--primary-strong);
+      font-size: 1.1rem;
+    }
+
+    .sample-type {
+      display: grid;
+      gap: 0.85rem;
+    }
+
+    .sample-type h1,
+    .sample-type h2,
+    .sample-type h3,
+    .sample-type p,
+    .sample-type small {
+      margin: 0;
+    }
+
+    .sample-type h1 {
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+    }
+
+    .sample-type h2 {
+      font-size: clamp(1.45rem, 2.4vw, 2.05rem);
+    }
+
+    .sample-type h3 {
+      font-size: 1.15rem;
+      color: var(--primary);
+    }
+
+    .sample-type p {
+      max-width: 68ch;
+    }
+
+    .button-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 2.8rem;
+      padding: 0.65rem 1rem;
+      border-radius: 0.85rem;
+      border: 1px solid transparent;
+      text-decoration: none;
+      font-weight: 700;
+      transition: transform 0.18s ease, background-color 0.18s ease, border-color 0.18s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+    }
+
+    .btn-primary:hover,
+    .btn-primary:focus-visible {
+      color: #fff;
+      background: linear-gradient(180deg, var(--primary), var(--primary-strong));
+    }
+
+    .btn-primary {
+      color: #fff;
+      background: linear-gradient(180deg, var(--primary), var(--primary-strong));
+    }
+
+    .btn-secondary {
+      color: var(--primary-strong);
+      background: #fff;
+      border-color: rgba(40, 78, 115, 0.22);
+    }
+
+    .mini-list {
+      margin: 0;
+      padding-left: 1.2rem;
+      color: var(--text-muted);
+    }
+
+    .metric-grid {
+      display: grid;
+      gap: var(--space-3);
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .metric {
+      padding: 1rem;
+      border-radius: var(--radius-md);
+      background: linear-gradient(180deg, rgba(248, 251, 253, 0.96), rgba(230, 237, 244, 0.96));
+      border: 1px solid rgba(107, 128, 151, 0.18);
+    }
+
+    .metric strong {
+      display: block;
+      font-size: clamp(1.5rem, 2.5vw, 2.1rem);
+      color: var(--primary-strong);
+      line-height: 1.1;
+    }
+
+    .metric span {
+      color: var(--text-muted);
+    }
+
+    .badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      min-height: 2rem;
+      padding: 0.3rem 0.7rem;
+      border-radius: 999px;
+      border: 1px solid rgba(107, 128, 151, 0.26);
+      background: rgba(236, 242, 248, 0.95);
+      color: var(--primary-strong);
+      font-size: 0.92rem;
+      font-weight: 700;
+    }
+
+    details {
+      border: 1px solid rgba(107, 128, 151, 0.22);
+      border-radius: var(--radius-md);
+      background: rgba(255, 255, 255, 0.9);
+      padding: 0.9rem 1rem;
+    }
+
+    summary {
+      cursor: pointer;
+      font-weight: 700;
+      color: var(--primary-strong);
+    }
+
+    .footnote {
+      color: var(--text-muted);
+      font-size: 0.94rem;
+    }
+
+    .aside-stack {
+      display: grid;
+      gap: var(--space-4);
+      position: sticky;
+      top: 1rem;
+      align-self: start;
+    }
+
+    .mobile-nav {
+      display: none;
+      margin-left: auto;
+    }
+
+    .mobile-nav summary {
+      list-style: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+      min-height: 2.9rem;
+      padding: 0.6rem 0.95rem;
+      border-radius: 999px;
+      border: 1px solid rgba(107, 128, 151, 0.26);
+      background: rgba(255, 255, 255, 0.94);
+      color: var(--primary-strong);
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .mobile-nav summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .mobile-nav summary::before {
+      content: "☰";
+      font-size: 1.1rem;
+      line-height: 1;
+    }
+
+    .mobile-nav-panel {
+      position: absolute;
+      right: 0;
+      top: calc(100% + 0.65rem);
+      z-index: 20;
+      min-width: 15rem;
+      padding: 0.75rem;
+      border-radius: 1rem;
+      border: 1px solid rgba(107, 128, 151, 0.22);
+      background: rgba(255, 255, 255, 0.98);
+      box-shadow: var(--shadow);
+    }
+
+    .mobile-nav-panel .nav-pill {
+      display: grid;
+      width: 100%;
+    }
+
+    .mobile-nav-panel .nav-pill a {
+      width: 100%;
+      justify-content: flex-start;
+      border-radius: 0.8rem;
+    }
+
+    .aside-card {
+      padding: var(--space-4);
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(107, 128, 151, 0.22);
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(232, 239, 246, 0.95));
+    }
+
+    .aside-card h2 {
+      margin-top: 0;
+      color: var(--heading);
+      font-size: 1.2rem;
+    }
+
+    .calendar-mosaic {
+      display: grid;
+      gap: var(--space-3);
+    }
+
+    .calendar-grid {
+      display: grid;
+      gap: 0.75rem;
+      grid-template-columns: 1fr;
+    }
+
+    .event-theme-remembrance {
+      --event-accent: #2f8f6b;
+      --event-tint: rgba(47, 143, 107, 0.14);
+    }
+
+    .event-theme-training {
+      --event-accent: #8b3f57;
+      --event-tint: rgba(139, 63, 87, 0.14);
+    }
+
+    .event-theme-anniversary {
+      --event-accent: #35648f;
+      --event-tint: rgba(53, 100, 143, 0.14);
+    }
+
+    .event-theme-conference {
+      --event-accent: #7350a0;
+      --event-tint: rgba(115, 80, 160, 0.14);
+    }
+
+    .event-tile {
+      display: grid;
+      grid-template-rows: 8.4fr 1.6fr;
+      border-radius: 1rem;
+      border: 1px solid rgba(107, 128, 151, 0.22);
+      background: var(--event-accent, #284e73);
+      text-decoration: none;
+      box-shadow: 0 8px 18px rgba(17, 34, 52, 0.06);
+      overflow: hidden;
+      color: inherit;
+      padding: 0;
+      appearance: none;
+      text-align: left;
+      font: inherit;
+      cursor: pointer;
+      position: relative;
+      transition: transform 0.18s ease, box-shadow 0.18s ease, filter 0.18s ease;
+    }
+
+    .event-tile:hover {
+      border-color: rgba(40, 78, 115, 0.35);
+      transform: translateY(-1px);
+      box-shadow: 0 12px 26px rgba(17, 34, 52, 0.1);
+    }
+
+    .event-tile::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: var(--event-accent);
+      opacity: 0.08;
+      z-index: 0;
+    }
+
+    .event-image {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      display: block;
+      overflow: hidden;
+      object-fit: cover;
+      object-position: center center;
+    }
+
+    .event-image::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(9, 18, 27, 0.08), rgba(9, 18, 27, 0.18));
+      pointer-events: none;
+    }
+
+    .event-body {
+      display: grid;
+      gap: 0;
+      align-content: start;
+      padding: 0.45rem 0.7rem 0.55rem;
+      background: transparent;
+      border-top: 1px solid rgba(255, 255, 255, 0.18);
+      position: relative;
+      z-index: 1;
+    }
+
+    .event-title {
+      margin: 0;
+      color: #fff;
+      font-size: 0.76rem;
+      line-height: 1.18;
+      font-weight: 800;
+    }
+
+    .event-note {
+      margin: 0;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    .event-spotlight {
+      position: fixed;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      padding: 1rem;
+      z-index: 2000;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.18s ease;
+    }
+
+    .event-spotlight.is-visible {
+      opacity: 1;
+    }
+
+    .event-spotlight-backdrop {
+      position: absolute;
+      inset: 0;
+      background: rgba(11, 19, 28, 0.42);
+      backdrop-filter: blur(3px);
+    }
+
+    .event-spotlight-card {
+      position: relative;
+      width: min(92vw, 900px);
+      border-radius: 1.4rem;
+      overflow: hidden;
+      background: #fff;
+      box-shadow: 0 30px 70px rgba(6, 14, 22, 0.32);
+      transform: scale(0.965);
+      transition: transform 0.18s ease;
+      border: 1px solid rgba(255, 255, 255, 0.48);
+    }
+
+    .event-spotlight.is-visible .event-spotlight-card {
+      transform: scale(1);
+    }
+
+    .event-spotlight-media {
+      position: relative;
+      height: min(48vh, 420px);
+      background: #d9e4f0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .event-spotlight-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      object-position: center center;
+    }
+
+    .event-spotlight-media::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(9, 18, 27, 0.08), rgba(9, 18, 27, 0.18));
+      pointer-events: none;
+    }
+
+    .event-spotlight-body {
+      display: grid;
+      gap: 0.65rem;
+      align-content: start;
+      padding: 1rem 1.1rem 1.15rem;
+      background: linear-gradient(180deg, rgba(245, 248, 251, 0.99), rgba(232, 239, 246, 0.99));
+      border-top: 1px solid rgba(107, 128, 151, 0.16);
+    }
+
+    .event-spotlight-kicker {
+      display: inline-flex;
+      width: fit-content;
+      align-items: center;
+      min-height: 1.9rem;
+      padding: 0.2rem 0.65rem;
+      border-radius: 999px;
+      background: rgba(40, 78, 115, 0.1);
+      color: var(--primary-strong);
+      font-size: 0.86rem;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+    }
+
+    .event-spotlight-title {
+      margin: 0;
+      color: var(--heading);
+      font-size: clamp(1.25rem, 2.2vw, 1.75rem);
+      line-height: 1.15;
+      font-weight: 800;
+    }
+
+    .event-spotlight-description {
+      margin: 0;
+      color: var(--text);
+      font-size: 1rem;
+      line-height: 1.55;
+    }
+
+    .event-spotlight.theme-remembrance .event-spotlight-kicker,
+    .event-spotlight.theme-remembrance .event-tile::before {
+      background: #2f8f6b;
+    }
+
+    .event-spotlight.theme-remembrance .event-spotlight-media {
+      background: #2f8f6b;
+    }
+
+    .event-spotlight.theme-training .event-spotlight-kicker,
+    .event-spotlight.theme-training .event-tile::before {
+      background: #8b3f57;
+    }
+
+    .event-spotlight.theme-training .event-spotlight-media {
+      background: #8b3f57;
+    }
+
+    .event-spotlight.theme-anniversary .event-spotlight-kicker,
+    .event-spotlight.theme-anniversary .event-tile::before {
+      background: #35648f;
+    }
+
+    .event-spotlight.theme-anniversary .event-spotlight-media {
+      background: #35648f;
+    }
+
+    .event-spotlight.theme-conference .event-spotlight-kicker,
+    .event-spotlight.theme-conference .event-tile::before {
+      background: #7350a0;
+    }
+
+    .event-spotlight.theme-conference .event-spotlight-media {
+      background: #7350a0;
+    }
+
+    body.event-spotlight-open {
+      overflow: hidden;
+    }
+
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    .ratio-box {
+      display: grid;
+      gap: 0.75rem;
+      padding: 1rem;
+      border-radius: var(--radius-md);
+      border: 1px solid rgba(107, 128, 151, 0.2);
+      background: rgba(240, 244, 248, 0.96);
+    }
+
+    .ratio-bar {
+      display: grid;
+      grid-template-columns: 1.1fr 2.2fr 1.05fr;
+      gap: 0.5rem;
+      min-height: 4.5rem;
+    }
+
+    .ratio-bar span {
+      border-radius: 0.7rem;
+      background: linear-gradient(180deg, rgba(40, 78, 115, 0.9), rgba(61, 104, 145, 0.88));
+    }
+
+    .ratio-bar span:nth-child(2) {
+      background: linear-gradient(180deg, rgba(100, 117, 139, 0.92), rgba(144, 159, 174, 0.94));
+    }
+
+    .ratio-bar span:nth-child(3) {
+      background: linear-gradient(180deg, rgba(194, 209, 223, 1), rgba(220, 229, 236, 1));
+    }
+
+    .footer {
+      margin-top: var(--space-4);
+      padding: 1rem 0 0.5rem;
+      color: var(--text-muted);
+      text-align: center;
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 980px) {
+      .content-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .aside-stack {
+        position: static;
+      }
+
+      .metric-grid,
+      .token-grid,
+      .layout-demo,
+      .menu-grid,
+      .calendar-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .brand-row {
+        align-items: flex-start;
+      }
+
+      .mobile-nav {
+        display: block;
+        position: relative;
+      }
+
+      .desktop-nav {
+        display: none;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .page-shell {
+        width: 100%;
+        padding-bottom: 2rem;
+      }
+
+      .masthead,
+      .panel,
+      .aside-card {
+        padding: 1rem;
+      }
+
+      .brand-mark {
+        grid-template-columns: 1fr;
+      }
+
+      .logo-badge {
+        width: 3.3rem;
+        height: 3.3rem;
+      }
+
+      .aside-stack {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Ugrás a fő tartalomhoz</a>
+
+  <div class="page-shell">
+    <header class="masthead" role="banner">
+      <div class="brand-row">
+        <div class="brand-mark">
+          <div class="logo-badge" aria-hidden="true">GT</div>
+          <div>
+            <p class="brand-kicker">MMK Gépészeti Tagozat</p>
+            <h1 class="brand-title">Tesztoldal a vizuális és akadálymentes alapokhoz</h1>
+          </div>
+        </div>
+
+        <nav class="desktop-nav" aria-label="Oldalon belüli gyorsnavigáció">
+          <ul class="nav-pill">
+            <li><a href="#tagozatunk">Tagozatunk</a></li>
+            <li><a href="#beszamolok">Beszámolóink</a></li>
+            <li><a href="#mernokeinknek">Mérnökeinknek</a></li>
+            <li><a href="#dijaink">Díjaink</a></li>
+            <li><a href="#szinek">Színek</a></li>
+            <li><a href="#tipografia">Tipográfia</a></li>
+            <li><a href="#elrendezes">Elrendezés</a></li>
+            <li><a href="#hozzaferes">Hozzáférés</a></li>
+          </ul>
+        </nav>
+
+        <details class="mobile-nav">
+          <summary aria-label="Navigáció megnyitása">Menü</summary>
+          <div class="mobile-nav-panel" aria-label="Oldalon belüli gyorsnavigáció">
+            <ul class="nav-pill">
+              <li><a href="#tagozatunk">Tagozatunk</a></li>
+              <li><a href="#beszamolok">Beszámolóink</a></li>
+              <li><a href="#mernokeinknek">Mérnökeinknek</a></li>
+              <li><a href="#dijaink">Díjaink</a></li>
+              <li><a href="#szinek">Színek</a></li>
+              <li><a href="#tipografia">Tipográfia</a></li>
+              <li><a href="#elrendezes">Elrendezés</a></li>
+              <li><a href="#hozzaferes">Hozzáférés</a></li>
+            </ul>
+          </div>
+        </details>
+      </div>
+
+      <p class="brand-summary">Ez a mintaoldal bemutatja a tervezett kék-szürke arculatot, az arányrendszert, a fő szövegstílusokat, az interakciós elemeket és azokat az akadálymentességi alapokat, amelyek a későbbi oldalaknál kötelezően megmaradnak.</p>
+    </header>
+
+    <main id="main" class="content-grid" tabindex="-1">
+      <aside class="sidebar-nav" aria-label="Fő navigáció">
+        <h2>Fő menüpontok</h2>
+        <ul class="sidebar-menu">
+          <li>
+            <a href="#tagozatunk">Tagozatunk</a>
+            <ul class="sidebar-submenu">
+              <li><a href="#tagozati-szervezet">Tagozati szervezet</a></li>
+              <li><a href="#erdekeltsegi-teruletek">Érdekeltségi területek</a></li>
+              <li><a href="#jogosultsagok">Jogosultságok, tanúsítványok</a></li>
+              <li><a href="#tagozati-dokumentumok">Dokumentumok</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#beszamolok">Beszámolóink</a>
+            <ul class="sidebar-submenu">
+              <li><a href="#beszamolo-esemenyek">Rendezvények, koszorúzások, megemlékezések</a></li>
+              <li><a href="#kamaratortenet">Visszatekintés</a></li>
+              <li><a href="#neves-elodeink">Neves elődeink</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#dijaink">Díjaink</a>
+            <ul class="sidebar-submenu">
+              <li><a href="#botka-imre-dij">Botka Imre-díj</a></li>
+              <li><a href="#magyar-jozsef-dij">Magyar József-díj</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#mernokeinknek">Mérnökeinknek</a>
+            <ul class="sidebar-submenu">
+              <li><a href="#jogszabalyok">Jogszabályok</a></li>
+              <li><a href="#jelentkezes">Jelentkezés a Kamarába, tagozatunkhoz</a></li>
+              <li><a href="#tovabbkepzesek">Továbbképzések</a></li>
+              <li><a href="#szakmai-eloadasok">Szakmai előadások, Cikkajánló</a></li>
+              <li><a href="#diplomadij">Diplomadíj pályázat</a></li>
+            </ul>
+          </li>
+        </ul>
+      </aside>
+
+      <div class="stack">
+        <section id="menu" class="panel" aria-labelledby="menu-title">
+          <h2 id="menu-title">Fő menü fejlécek és almenük</h2>
+          <p class="section-note">Ez a blokk azt mutatja meg, hogyan fér el a bal oldali főmenü, ha az egy összesítő, irányító jellegű felületként működik. A fő menüpontok külön egységek, alattuk az almenük vizuálisan táblázatos, de olvasható szerkezetben jelennek meg.</p>
+
+          <div class="menu-grid" role="list" aria-label="Fő menüpontok mintája">
+            <article id="tagozatunk" class="menu-card" role="listitem">
+              <h3>Tagozatunk</h3>
+              <ul class="mini-list">
+                <li id="tagozati-szervezet">Tagozati szervezet (+ szakcsoportok)</li>
+                <li id="erdekeltsegi-teruletek">Érdekeltségi területek</li>
+                <li id="jogosultsagok">Jogosultságok, tanúsítványok</li>
+                <li id="tagozati-dokumentumok">Dokumentumok: szabályzatok, határozatok, beszámolók</li>
+              </ul>
+            </article>
+
+            <article id="beszamolok" class="menu-card" role="listitem">
+              <h3>Beszámolóink</h3>
+              <ul class="mini-list">
+                <li id="beszamolo-esemenyek">Beszámolók (rendezvények, koszorúzások, megemlékezések)</li>
+                <li id="kamaratortenet">Mérnökkamara története (+ Első húsz évünk kiadvány)</li>
+                <li id="neves-elodeink">Neves elődeink</li>
+              </ul>
+            </article>
+
+            <article id="dijaink" class="menu-card" role="listitem">
+              <h3>Díjaink</h3>
+              <ul class="mini-list">
+                <li id="botka-imre-dij">Botka Imre-díj</li>
+                <li id="magyar-jozsef-dij">Magyar József-díj</li>
+                <li>Díjazottak - év, mire kapta, fénykép az emberről</li>
+                <li>Díjátadók (csak &lt; 3 év, archívummal)</li>
+              </ul>
+            </article>
+
+            <article id="mernokeinknek" class="menu-card" role="listitem">
+              <h3>Mérnökeinknek</h3>
+              <ul class="mini-list">
+                <li id="jogszabalyok">Jogszabályok (felsorolás, jelentkezés a Kamarába, tagozatunkhoz)</li>
+                <li id="jelentkezes">Jelentkezés a Kamarába, tagozatunkhoz</li>
+                <li id="tovabbkepzesek">Továbbképzések</li>
+                <li id="szakmai-eloadasok">Szakmai előadások, Cikkajánló</li>
+                <li id="diplomadij">Fiatal mérnökeinknek: Diplomadíj pályázat</li>
+              </ul>
+            </article>
+          </div>
+        </section>
+
+        <section id="szinek" class="panel" aria-labelledby="szinek-title">
+          <h2 id="szinek-title">Fő színvilág</h2>
+          <p class="section-note">A paletta hivatalos, visszafogott kék-szürke tartományra épül. A minták olyan tónusokat használnak, amelyek világos háttéren is jól olvashatók.</p>
+
+          <div class="token-grid" role="list" aria-label="Színminták">
+            <article class="swatch" role="listitem">
+              <div class="swatch-top" style="background: linear-gradient(135deg, #17344f, #284e73);"></div>
+              <div class="swatch-body">
+                <h3 class="swatch-title">Fő kék</h3>
+                <p class="swatch-meta">#284E73 - címsorok, kiemelések, elsődleges gombok</p>
+              </div>
+            </article>
+
+            <article class="swatch" role="listitem">
+              <div class="swatch-top" style="background: linear-gradient(135deg, #64758b, #9fb0c3);"></div>
+              <div class="swatch-body">
+                <h3 class="swatch-title">Középszürke-kék</h3>
+                <p class="swatch-meta">#64758B - másodlagos felületek, jelölések, háttérrétegek</p>
+              </div>
+            </article>
+
+            <article class="swatch" role="listitem">
+              <div class="swatch-top" style="background: linear-gradient(135deg, #d9e4f0, #eef3f8);"></div>
+              <div class="swatch-body">
+                <h3 class="swatch-title">Világos felület</h3>
+                <p class="swatch-meta">#D9E4F0 - kártyák, panelek, kiemelt blokkok</p>
+              </div>
+            </article>
+
+            <article class="swatch" role="listitem">
+              <div class="swatch-top" style="background: linear-gradient(135deg, #0f2133, #1c2938);"></div>
+              <div class="swatch-body">
+                <h3 class="swatch-title">Sötét szöveg</h3>
+                <p class="swatch-meta">#1C2938 - alap törzsszöveg, erős kontrasztú olvashatóság</p>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section id="tipografia" class="panel" aria-labelledby="tipografia-title">
+          <h2 id="tipografia-title">Betűstílusok és hierarchia</h2>
+          <p class="section-note">A címsorok karakteres, tiszta megjelenést kapnak, a törzsszöveg pedig nagy olvashatóságú, hétköznapi sans-serif betűtípusra épül.</p>
+
+          <div class="sample-type">
+            <h1>Fő címsor mintája</h1>
+            <h2>Másodlagos címsor mintája</h2>
+            <h3>Alcím és szekciójelölő stílus</h3>
+            <p>Ez a törzsszöveg-minta azt mutatja, hogy a rendszeres tartalomnak kellően nagy sortávolsága, jó kontrasztja és tiszta vizuális ritmusa van. A weboldal célja, hogy hivatalos és könnyen olvasható legyen minden felhasználónak.</p>
+            <small style="font-family: var(--font-mono); color: var(--text-muted);">Monospace kód- vagy meta jellegű szöveghez</small>
+          </div>
+
+          <div style="margin-top: 1.25rem;" class="badge-row" aria-label="Szöveges jelölők">
+            <span class="badge">Normál</span>
+            <span class="badge">Kiemelt</span>
+            <span class="badge">Archivált</span>
+            <span class="badge">Letölthető PDF</span>
+          </div>
+        </section>
+
+        <section id="elrendezes" class="panel" aria-labelledby="elrendezes-title">
+          <h2 id="elrendezes-title">Elrendezés és arányok</h2>
+          <p class="section-note">A szerkezet a későbbi oldalakon is megtartható: bal oldali navigáció, középső tartalmi rész, jobb oldali esemény- vagy naptárblokk, alul lábléc.</p>
+
+          <div class="layout-demo" aria-label="Oldalsablon arányai">
+            <div class="layout-col">
+              <strong>Bal oszlop</strong>
+              <p>Menü, almenük, logók, gyors elérés. Fixen felismerhető, de nem nyomja el a tartalmat.</p>
+            </div>
+            <div class="layout-col layout-main">
+              <div class="layout-card">
+                <strong>Fő tartalom</strong>
+                <p>Hírek, beszámolók, részletes oldalak és dokumentumok itt jelennek meg a legnagyobb vizuális hangsúllyal.</p>
+              </div>
+              <div class="layout-card">
+                <strong>Arányok</strong>
+                <p>A tartalmi súly középen marad, a kiegészítő modulok másodlagosak, de könnyen elérhetők.</p>
+              </div>
+              <div class="layout-card">
+                <strong>Footer</strong>
+                <p>Lábléc, kapcsolati adatok, dokumentumokra és szabályzatokra mutató linkek.</p>
+              </div>
+            </div>
+            <div class="layout-col">
+              <strong>Jobb oszlop</strong>
+              <p>Eseménynaptár, mozaikos napnézet, hover információs buborék, gyors áttekintés.</p>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <aside class="aside-stack" aria-label="Kiegészítő minták és akadálymentességi alapok">
+        <section class="aside-card" aria-labelledby="ui-title">
+          <h2 id="ui-title">Kiemelt UI elemek</h2>
+          <div class="button-row" style="margin-bottom: 1rem;">
+            <a class="btn btn-primary" href="#main">Elsődleges gomb</a>
+            <a class="btn btn-secondary" href="#hozzaferes">Másodlagos gomb</a>
+          </div>
+          <ul class="mini-list">
+            <li>Erős, jól látható fókuszállapot.</li>
+            <li>Legalább 44 px körüli kattintható érintési zóna.</li>
+            <li>Egységes lekerekítések és visszafogott árnyékok.</li>
+          </ul>
+        </section>
+
+        <section class="aside-card" aria-labelledby="ratio-title">
+          <h2 id="ratio-title">Arányok gyors nézete</h2>
+          <div class="ratio-box">
+            <div class="ratio-bar" aria-hidden="true">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+            <p class="footnote">A kompozíció közelítő aránya: navigáció 1, tartalom 2, kiegészítő blokk 1. Ez segíti az áttekinthetőséget és a gyors keresést.</p>
+          </div>
+        </section>
+
+        <section class="aside-card calendar-mosaic" id="calendar" aria-labelledby="calendar-title">
+          <h2 id="calendar-title">Esemény mozaik</h2>
+          <p class="event-note">Csak a tényleges eseménynapok látszanak. A cellák később valódi képekkel cserélhetők, most generált mintaképeket használnak a kompozíció tesztelésére.</p>
+
+          <div class="calendar-grid" role="list" aria-label="Esemény mozaik napjai">
+            <button class="event-tile event-theme-remembrance" type="button" data-theme="remembrance" data-date="2026. 05. 12." data-title="Koszorúzás és megemlékezés" data-description="Egy ünnepi, visszafogott esemény, amely jól illeszkedik a zöld témához. Később ide valós, archivált fotó kerülhet a tagozat emlékező eseményeiről." data-person-alt="Bánki Donát portréja" data-object-alt="Bánki-turbina rajza" role="listitem">
+              <img class="event-image" src="../img/Calendar/Banki_Donat_portre.png" alt="" loading="eager">
+              <div class="event-body">
+                <h3 class="event-title">Koszorúzás és megemlékezés</h3>
+              </div>
+            </button>
+
+            <button class="event-tile event-theme-training" type="button" data-theme="training" data-date="2026. 06. 03." data-title="Továbbképzés és szakmai előadás" data-description="A bordó téma a továbbképzésekhez kapcsolódik. Ez a hely később előadói fotóknak, névsoroknak és letölthető anyagoknak adhat helyet." data-person-alt="Bánki Donát portréja" data-object-alt="Bánki-turbina rajza" role="listitem">
+              <img class="event-image" src="" alt="" loading="eager">
+              <div class="event-body">
+                <h3 class="event-title">Továbbképzés és szakmai előadás</h3>
+              </div>
+            </button>
+
+            <button class="event-tile event-theme-anniversary" type="button" data-theme="anniversary" data-date="2026. 09. 18." data-title="Évforduló és jubileumi megemlékezés" data-description="A kék téma az évfordulós alkalmakat jelzi, például egy 100. évfordulót. Itt később valós jubileumi képek és történeti anyagok is megjelenhetnek." data-person-alt="Bánki Donát portréja" data-object-alt="Bánki-turbina rajza" role="listitem">
+              <img class="event-image" src="" alt="" loading="eager">
+              <div class="event-body">
+                <h3 class="event-title">Évforduló és jubileumi megemlékezés</h3>
+              </div>
+            </button>
+
+            <button class="event-tile event-theme-conference" type="button" data-theme="conference" data-date="2026. 11. 07." data-title="Konferencia és kiállítás" data-description="A lila téma a konferenciák és kiállítások jelölésére szolgál. Ez a minta később például szakmai expo, prezentáció vagy díszvendéges esemény képeivel egészíthető ki." data-person-alt="Bánki Donát portréja" data-object-alt="Bánki-turbina rajza" role="listitem">
+              <img class="event-image" src="" alt="" loading="eager">
+              <div class="event-body">
+                <h3 class="event-title">Konferencia és kiállítás</h3>
+              </div>
+            </button>
+          </div>
+
+          <p class="event-note">A cellák alatt alapból csak a cím látszik. A részletes leírás 0.5 másodperces hover után, középre nagyított előnézetben jelenik meg.</p>
+        </section>
+
+        <div class="event-spotlight" aria-hidden="true" hidden>
+          <div class="event-spotlight-backdrop"></div>
+          <div class="event-spotlight-card" role="presentation">
+            <div class="event-spotlight-media"></div>
+            <div class="event-spotlight-body">
+              <span class="event-spotlight-kicker"></span>
+              <h3 class="event-spotlight-title"></h3>
+              <p class="event-spotlight-description"></p>
+            </div>
+          </div>
+        </div>
+
+        <section id="hozzaferes" class="aside-card" aria-labelledby="access-title">
+          <h2 id="access-title">Akadálymentesség</h2>
+          <details open>
+            <summary>Mit tartalmaz ez a minta?</summary>
+            <ul class="mini-list" style="margin-top: 0.75rem;">
+              <li>Skip link a legelső interaktív elemként.</li>
+              <li>Szemantikus fő szerkezet: header, nav, main, aside, footer.</li>
+              <li>Megfelelő kontrasztú szöveg- és háttérszínek.</li>
+              <li>Képernyőolvasó-barát címstruktúra és feliratozás.</li>
+              <li>Kibontott részletek, amelyek a további olvasást is támogatják.</li>
+            </ul>
+          </details>
+          <p class="footnote">A későbbi oldalaknál érdemes következetesen megtartani ezt a szerkezetet, hogy az Aria text-to-speech és a billentyűzetes használat kiszámítható maradjon.</p>
+        </section>
+
+        <section class="aside-card" aria-labelledby="content-title">
+          <h2 id="content-title">Tartalmi minta</h2>
+          <p class="footnote">Hírek, beszámolók, dokumentumok és díjak egységes kártyarendszerben jelenhetnek meg, dátummal, jelölőkkel és archiválási állapottal.</p>
+          <div class="metric-grid" style="grid-template-columns: 1fr; margin-top: 1rem;">
+            <div class="metric">
+              <strong>01</strong>
+              <span>Hírek elsőként</span>
+            </div>
+            <div class="metric">
+              <strong>12</strong>
+              <span>Hónap után archiválás</span>
+            </div>
+            <div class="metric">
+              <strong>100%</strong>
+              <span>Szemantikus HTML fókusz</span>
+            </div>
+          </div>
+        </section>
+      </aside>
+    </main>
+
+    <footer class="footer" role="contentinfo">
+      <p>MMK-GT sablon tesztoldal - kék-szürke arculati alap, hozzáférhető felépítéssel.</p>
+    </footer>
+  </div>
+
+  <script>
+    (() => {
+      const tiles = Array.from(document.querySelectorAll('.event-tile'));
+      const spotlight = document.querySelector('.event-spotlight');
+      const spotlightCard = document.querySelector('.event-spotlight-card');
+      const spotlightMedia = document.querySelector('.event-spotlight-media');
+      const spotlightKicker = document.querySelector('.event-spotlight-kicker');
+      const spotlightTitle = document.querySelector('.event-spotlight-title');
+      const spotlightDescription = document.querySelector('.event-spotlight-description');
+      const body = document.body;
+      let hoverTimer = null;
+      let activeTile = null;
+      window.__eventSpotlightError = null;
+
+      const themeLabel = {
+        remembrance: 'Koszorúzás',
+        training: 'Továbbképzés',
+        anniversary: 'Évforduló',
+        conference: 'Konferencia'
+      };
+
+      const escapeHtml = (value) => value
+        .replaceAll('&', '&amp;')
+        .replaceAll('<', '&lt;')
+        .replaceAll('>', '&gt;')
+        .replaceAll('"', '&quot;')
+        .replaceAll("'", '&#39;');
+
+      const composeImage = (personSrc, objectSrc, accent, title) => {
+        const svg = `
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice">
+            <defs>
+              <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+                <stop offset="0%" stop-color="#d9e4f0"/>
+                <stop offset="100%" stop-color="#eef3f8"/>
+              </linearGradient>
+              <linearGradient id="fade" x1="0" x2="0" y1="0" y2="1">
+                <stop offset="0%" stop-color="rgba(9, 18, 27, 0)"/>
+                <stop offset="100%" stop-color="rgba(9, 18, 27, 0.22)"/>
+              </linearGradient>
+              <filter id="softRight">
+                <feGaussianBlur stdDeviation="4"/>
+              </filter>
+            </defs>
+            <rect width="1200" height="800" fill="url(#bg)"/>
+            <image href="${personSrc}" x="0" y="0" width="700" height="800" preserveAspectRatio="xMidYMid slice"/>
+            <g opacity="0.96" filter="url(#softRight)">
+              <image href="${objectSrc}" x="520" y="0" width="680" height="800" preserveAspectRatio="xMidYMid slice"/>
+            </g>
+            <rect width="1200" height="800" fill="${accent}" opacity="0.14"/>
+            <rect width="1200" height="800" fill="url(#fade)"/>
+            <text x="44" y="744" fill="#ffffff" font-family="Segoe UI, Arial, sans-serif" font-size="34" font-weight="700">${title}</text>
+          </svg>`;
+
+        return `data:image/svg+xml;charset=utf-8,${encodeURIComponent(svg)}`;
+      };
+
+      const scheduleSpotlight = (tile) => {
+        if (hoverTimer) {
+          window.clearTimeout(hoverTimer);
+        }
+
+        hoverTimer = window.setTimeout(() => {
+          if (activeTile && activeTile !== tile) {
+            activeTile.classList.remove('is-hot');
+          }
+
+          activeTile = tile;
+          tile.classList.add('is-hot');
+          try {
+            renderSpotlight(tile);
+          } catch (error) {
+            window.__eventSpotlightError = String(error && error.message ? error.message : error);
+          }
+        }, 500);
+      };
+
+      const clearSpotlight = () => {
+        if (hoverTimer) {
+          window.clearTimeout(hoverTimer);
+          hoverTimer = null;
+        }
+
+        if (activeTile) {
+          activeTile.classList.remove('is-hot');
+          activeTile = null;
+        }
+
+        spotlight.classList.remove('is-visible', 'theme-remembrance', 'theme-training', 'theme-anniversary', 'theme-conference');
+        spotlight.hidden = true;
+        body.classList.remove('event-spotlight-open');
+      };
+
+      const renderSpotlight = (tile) => {
+        const theme = tile.getAttribute('data-theme') || 'conference';
+        const title = tile.getAttribute('data-title') || tile.querySelector('.event-title')?.textContent || '';
+        const description = tile.getAttribute('data-description') || '';
+        const tileImage = tile.querySelector('.event-image');
+        const imageSrc = tileImage?.currentSrc || tileImage?.src || '../Banki_Donat_portre.png';
+        const imageAlt = tileImage?.alt || title;
+
+        spotlightMedia.innerHTML = `<img class="event-image" src="${escapeHtml(imageSrc)}" alt="${escapeHtml(imageAlt)}">`;
+
+        spotlightKicker.textContent = themeLabel[theme] || tile.dataset.date || '';
+        spotlightTitle.textContent = title;
+        spotlightDescription.textContent = description;
+
+        spotlight.classList.remove('theme-remembrance', 'theme-training', 'theme-anniversary', 'theme-conference');
+        spotlight.classList.add(`theme-${theme}`);
+        spotlight.hidden = false;
+        requestAnimationFrame(() => spotlight.classList.add('is-visible'));
+        body.classList.add('event-spotlight-open');
+      };
+
+      tiles.forEach((tile) => {
+        const title = tile.getAttribute('data-title') || tile.querySelector('.event-title')?.textContent || '';
+        const image = tile.querySelector('.event-image');
+        if (!image.getAttribute('src')) {
+          image.src = '../img/Calendar/Banki_Donat_portre.png';
+        }
+
+        image.alt = title;
+
+        tile.addEventListener('pointerenter', () => scheduleSpotlight(tile));
+        tile.addEventListener('mouseenter', () => scheduleSpotlight(tile));
+        tile.addEventListener('pointerleave', clearSpotlight);
+        tile.addEventListener('mouseleave', clearSpotlight);
+        tile.addEventListener('focusin', () => scheduleSpotlight(tile));
+        tile.addEventListener('focusout', clearSpotlight);
+
+        tile.addEventListener('click', (event) => {
+          event.preventDefault();
+          if (activeTile === tile && spotlight.classList.contains('is-visible')) {
+            clearSpotlight();
+            return;
+          }
+
+          clearSpotlight();
+          activeTile = tile;
+          tile.classList.add('is-hot');
+          try {
+            renderSpotlight(tile);
+          } catch (error) {
+            window.__eventSpotlightError = String(error && error.message ? error.message : error);
+          }
+        });
+      });
+
+      spotlight.addEventListener('click', clearSpotlight);
+      window.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape') {
+          clearSpotlight();
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
