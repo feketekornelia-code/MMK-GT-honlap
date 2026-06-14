@@ -1,7 +1,8 @@
 # MMK-GT-honlap
 
-- Tudom, hogy Vide codeolt és nehezen átlátható, már maga a css is redundáns, sok fölösleg van, stbstbstb. de még nem jutottunk el a dolog takarítás részéhez :/
-- Ha másra nem is, akkor arra legalább jó, hogy lássátok, hogy felépítés ügyileg mégis mire gondoltunk. A bal oldali navigációs rész elvileg végleges, az biztos jó kiindulópont.
+- A rendszer jelenleg egy működőképes PHP/MySQL alapú honlap, ahol a publikus oldalak adatbázisból töltődnek, az admin felület pedig kezeli a híreket, dokumentumokat, szakmai anyagokat, naptári eseményeket és díjazottakat. A legfontosabb megmaradt feladat a kód tisztítása, a konfiguráció és a DB séma formalizálása, illetve a biztonsági és karbantartási rétegek erősítése.
+
+- Ha másra nem is, akkor arra legalább jó lesz, hogy lássátok, hogy felépítés ügyileg mégis mire gondoltunk. A bal oldali navigációs rész elvileg végleges, az biztos jó kiindulópont.
 - Ha bármi kérdés van: fekete.kornelia@arkadii.hu  vagy  david@arkadii.hu
 
 ## Használt technológiák
@@ -134,7 +135,3 @@ A projekt MariaDB - MySQL adatbázist használ. A kódban látható kapcsolat:
 - Nincs automatizált tesztkészlet.
 - Az admin felülethez hasznos lenne külön keresés/szűrés és rendezési vezérlő.
 - A projekt átadásához még ajánlott lenne egy telepítési és mentési/restore útmutató.
-
-## Rövid összegzés
-
-A rendszer jelenleg egy működő PHP/MySQL alapú honlap, ahol a publikus oldalak adatbázisból töltődnek, az admin felület pedig kezeli a híreket, dokumentumokat, szakmai anyagokat, naptári eseményeket és díjazottakat. A legfontosabb megmaradt feladat a kód tisztítása, a konfiguráció és a DB séma formalizálása, illetve a biztonsági és karbantartási rétegek erősítése.
